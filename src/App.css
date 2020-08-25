@@ -7,6 +7,8 @@ html, body{
 }
 
 body{
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
@@ -20,27 +22,33 @@ main{
   margin: 4rem auto;
 }
 
-.file-upload{
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
+/*Form Styling*/
+form{
+  margin: 30px auto 10px;
+  text-align: center;
 }
 
-.file-upload span{
-  background-color: blue;
-  padding: 1rem;
-}
-
-.file-upload input.upload{
-  position: absolute;
-  top: 0;
-  left:0;
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-  cursor: pointer;
+label input{
+  height: 0;
+  width: 0;
   opacity: 0;
-  filter: alpha(opacity=0);
+}
+
+label{
+  display: block;
+  padding: 0.5rem;
+  width: min-content;
+  height: min-content;
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 10px;
+  margin: 10px auto;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+}
+label:hover{
+  background:#3F51B5;
+  color: #fff;
+  cursor: pointer;
 }
 
 audio{

@@ -5,6 +5,7 @@ const useStorage = (file) =>{
     const [progress, setProgress] = useState(0);
     const [error, setError]= useState(null);
     const [url, setUrl] = useState(null);
+    const [name, setName] = useState(null);
     const [type, setType] = useState(null);
 
     useEffect(()=>{
@@ -19,15 +20,15 @@ const useStorage = (file) =>{
             setError(err);
         }, async () =>{
             const url = await storageRef.getDownloadURL();
+            const name = file.name;
             const createdAt = timestamp();
-            collectionRef.add({url, type, createdAt})
+            collectionRef.add({url, name, type, createdAt})
             setUrl(url);
-            setType(type);
             console.log(type);
         })
     }, [file])
 
-    return {progress, url, type, error}
+    return {progress, name, url, type, error}
 }
 
 export default useStorage;
